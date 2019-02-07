@@ -17,7 +17,9 @@ console.info("Initializing express");
 app.use('/contents',express.static(`${__dirname}/contents`));
 console.info('Downloadable content route has been enabled');
 
-
+// Route setups
+app.post('/saveTodo', todoService.create);
+console.info('Express routes have been configured');
 
 // Run server
 app.listen(appConfig.port);
