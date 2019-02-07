@@ -24,5 +24,12 @@ module.exports = {
         newTodo.save()
         .then((result)=>successResponse(result, res))
         .catch(err=>errorResponse({}, err.message, res));
+    },
+    getAll: function(req,res){
+        jsonHeader(res);
+
+        model.find()
+        .then((result)=>successResponse(result,res))
+        .catch(err=>errorResponse({}, err.message,res));
     }
 }
