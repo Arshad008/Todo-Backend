@@ -32,6 +32,13 @@ module.exports = {
         .then((result)=>successResponse(result,res))
         .catch(err=>errorResponse({}, err.message,res));
     },
+    getFinishedTodos:function(req,res){
+        jsonHeader(res);
+
+        model.find({status: "finished"})
+        .then((result)=>successResponse(result,res))
+        .catch(err=>errorResponse({}, err.message,res));
+    },
     delete: function(req,res){
         jsonHeader(res);
 
