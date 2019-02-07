@@ -25,10 +25,10 @@ module.exports = {
         .then((result)=>successResponse(result, res))
         .catch(err=>errorResponse({}, err.message, res));
     },
-    getAll: function(req,res){
+    getTodos: function(req,res){
         jsonHeader(res);
 
-        model.find()
+        model.find({status: "todo"})
         .then((result)=>successResponse(result,res))
         .catch(err=>errorResponse({}, err.message,res));
     },

@@ -19,7 +19,7 @@ console.info('Downloadable content route has been enabled');
 
 // Route setups
 app.post('/saveTodo', todoService.create);
-app.get('/todos', todoService.getAll);
+app.get('/todos', todoService.getTodos);
 app.delete('/delete/:id', todoService.delete);
 console.info('Express routes have been configured');
 
