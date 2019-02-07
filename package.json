@@ -1,0 +1,19 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arshad008/todo-backend.git"
+  },
+  "author": "M.R.M AArshad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arshad008/todo-backend/issues"
+  },
+  "homepage": "https://github.com/Arshad008/todo-backend#readme"
+}
