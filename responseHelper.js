@@ -20,5 +20,15 @@ module.exports = {
                 result
             }
         )
+    ),
+    errorResponse:(result, msg, res)=>res.status(500).send(
+        JSON.stringify(
+            {
+                code: CODE_ERROR,
+                msg,
+                result
+            }
+        )
     )
+
 }
