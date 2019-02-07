@@ -11,5 +11,14 @@ module.exports = {
                 result
             }
         )
+    ),
+    invalidParameterResponse:(result, msg, res)=>res.status(400).send(
+        JSON.stringify(
+            {
+                code: CODE_ERROR,
+                msg,
+                result
+            }
+        )
     )
 }
