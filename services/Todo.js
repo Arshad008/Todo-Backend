@@ -20,7 +20,7 @@ module.exports = {
             return;
         }
 
-        let newTodo = new model(values);
+        let newTodo = new model(value);
         newTodo.save()
         .then((result)=>successResponse(result, res))
         .catch(err=>errorResponse({}, err.message, res));
