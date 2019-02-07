@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const data = require('./data');
 const appConfig = require('./appConfig');
 
@@ -11,6 +12,7 @@ console.info("- Initializing Database");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 console.info("Initializing express");
 
 // Enable downloadable contents
