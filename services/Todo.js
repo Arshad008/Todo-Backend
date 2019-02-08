@@ -47,5 +47,13 @@ module.exports = {
         model.findByIdAndDelete(id)
         .then((result)=>successResponse(result,res))
         .catch(err=>errorResponse({}, err.message,res));
+    },
+    updateStatus: function(req,res){
+        jsonHeader(res);
+        let id = req.params.id;
+        let params = req.body;
+        model.findByIdAndUpdate(id, {status: params.status})
+        .then((result)=>successResponse(result,res))
+        .catch(err=>errorResponse({}, err.message,res));
     }
 }
