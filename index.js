@@ -27,6 +27,7 @@ app.get('/todos', todoService.getTodos);
 app.get('/finishedTodos', todoService.getFinishedTodos);
 app.delete('/delete/:id', todoService.delete);
 app.put('/updateStatus/:id', todoService.updateStatus);
+app.put('/updateTodo/:id', todoService.update);
 console.info('Express routes have been configured');
 
 // Run server
