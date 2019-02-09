@@ -55,5 +55,22 @@ module.exports = {
         model.findByIdAndUpdate(id, {status: params.status})
         .then((result)=>successResponse(result,res))
         .catch(err=>errorResponse({}, err.message,res));
+    },
+    update:function(req,res){
+        jsonHeader(res);
+
+        let id = req.params.id;
+        let params = req.body;
+
+        if(id){
+            model.findOneAndUpdate(id, {
+                title: params.title,
+                description: params.description,
+                tag: params.tag,
+                status: params.status,
+                addedOn: params.addedOn
+            }).then((result)=>successResponse(result,res))
+            .catch(err=>errorResponse({}, err.message,res));
+        }        
     }
 }
