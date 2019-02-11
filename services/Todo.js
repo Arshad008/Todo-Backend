@@ -40,10 +40,16 @@ module.exports = {
     },
     getFinishedTodos:function(req,res){
         jsonHeader(res);
-
-        model.find({status: "finished"})
-        .then((result)=>successResponse(result,res))
-        .catch(err=>errorResponse({}, err.message,res));
+        let tag = req.params.tag;
+        if(tag == "all"){
+            model.find({status: "finished"})
+            .then((result)=>successResponse(result,res))
+            .catch(err=>errorResponse({}, err.message,res));   
+        }else{
+            model.find({status: "finished", tag: tag})
+            .then((result)=>successResponse(result,res))
+            .catch(err=>errorResponse({}, err.message,res));
+        }
     },
     delete: function(req,res){
         jsonHeader(res);
