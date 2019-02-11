@@ -27,10 +27,16 @@ module.exports = {
     },
     getTodos: function(req,res){
         jsonHeader(res);
-
-        model.find({status: "todo"})
-        .then((result)=>successResponse(result,res))
-        .catch(err=>errorResponse({}, err.message,res));
+        let tag = req.params.tag;
+        if(tag == "all"){
+            model.find({status: "todo"})
+            .then((result)=>successResponse(result,res))
+            .catch(err=>errorResponse({}, err.message,res));
+        }else{
+            model.find({status: "todo", tag: tag})
+            .then((result)=>successResponse(result,res))
+            .catch(err=>errorResponse({}, err.message,res));
+        }        
     },
     getFinishedTodos:function(req,res){
         jsonHeader(res);
@@ -77,7 +83,7 @@ module.exports = {
         jsonHeader(res);
         let tag = req.params.tag;
         if(tag == "all"){
-            model.find().select('tag -_id')
+            model.find().distinct('tag')
             .then((result)=>successResponse(result, res))
             .catch(err=>errorResponse({}, err.message, res));            
         }else{
