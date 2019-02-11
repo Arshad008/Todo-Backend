@@ -72,5 +72,18 @@ module.exports = {
             }).then((result)=>successResponse(result,res))
             .catch(err=>errorResponse({}, err.message,res));
         }        
+    },
+    getAllTags: function(req,res){
+        jsonHeader(res);
+        let tag = req.params.tag;
+        if(tag == "all"){
+            model.find().select('tag -_id')
+            .then((result)=>successResponse(result, res))
+            .catch(err=>errorResponse({}, err.message, res));            
+        }else{
+            model.find({tag: tag}).select('tag -_id')
+            .then((result)=>successResponse(result, res))
+            .catch(err=>errorResponse({}, err.message, res));
+        }
     }
 }
