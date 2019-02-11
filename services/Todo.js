@@ -62,11 +62,11 @@ module.exports = {
         let id = req.params.id;
         let params = req.body;
 
-        if(id){
-            model.findOneAndUpdate(id, {
+        if(id != null || id != undefined){
+            model.findByIdAndUpdate(id, {
                 title: params.title,
                 description: params.description,
-                tag: params.tag,
+                tag: params.tag.toLowerCase(),
                 status: params.status,
                 addedOn: params.addedOn
             }).then((result)=>successResponse(result,res))
