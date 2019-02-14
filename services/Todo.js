@@ -29,11 +29,11 @@ module.exports = {
         jsonHeader(res);
         let tag = req.params.tag;
         if(tag == "all"){
-            model.find({status: "todo"})
+            model.find({status: "todo"}).sort({addedOn: -1})
             .then((result)=>successResponse(result,res))
             .catch(err=>errorResponse({}, err.message,res));
         }else{
-            model.find({status: "todo", tag: tag})
+            model.find({status: "todo", tag: tag}).sort({addedOn: -1})
             .then((result)=>successResponse(result,res))
             .catch(err=>errorResponse({}, err.message,res));
         }        
@@ -42,11 +42,11 @@ module.exports = {
         jsonHeader(res);
         let tag = req.params.tag;
         if(tag == "all"){
-            model.find({status: "finished"})
+            model.find({status: "finished"}).sort({addedOn: -1})
             .then((result)=>successResponse(result,res))
             .catch(err=>errorResponse({}, err.message,res));   
         }else{
-            model.find({status: "finished", tag: tag})
+            model.find({status: "finished", tag: tag}).sort({addedOn: -1})
             .then((result)=>successResponse(result,res))
             .catch(err=>errorResponse({}, err.message,res));
         }
